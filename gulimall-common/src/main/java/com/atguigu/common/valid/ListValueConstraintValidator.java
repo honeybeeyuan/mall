@@ -7,9 +7,9 @@ import java.util.Set;
 
 public class ListValueConstraintValidator implements ConstraintValidator<ListValue,Integer> {
 
-    private Set<Integer> set = new HashSet<>();
+    private Set<Integer> set =new HashSet<>();
     //初始化方法
-    @Override
+
     public void initialize(ListValue constraintAnnotation) {
 
         int[] vals = constraintAnnotation.vals();
@@ -27,7 +27,7 @@ public class ListValueConstraintValidator implements ConstraintValidator<ListVal
      * @param context
      * @return
      */
-    @Override
+
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
 
         return set.contains(value);
