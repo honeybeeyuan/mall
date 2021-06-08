@@ -20,10 +20,6 @@ import com.atguigu.common.utils.R;
 
 /**
  * 优惠券领取历史记录
- *
- * @author linfeng
- * @email 951243590@qq.com
- * @date 2021-06-05 15:48:40
  */
 @RestController
 @RequestMapping("coupon/couponhistory")
