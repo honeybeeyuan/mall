@@ -21,10 +21,6 @@ import com.atguigu.common.utils.R;
 
 /**
  * 商品三级分类
- *
- * @author linfeng
- * @email 951243590@qq.com
- * @date 2021-06-05 14:49:41
  */
 @RestController
 @RequestMapping("product/category")
@@ -85,7 +81,7 @@ public class CategoryController {
     @RequestMapping("/update")
    // @RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
+        categoryService.updateCascade(category);
 
         return R.ok();
     }

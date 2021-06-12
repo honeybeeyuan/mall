@@ -20,10 +20,6 @@ import com.atguigu.common.utils.R;
 
 /**
  * spu图片
- *
- * @author linfeng
- * @email 951243590@qq.com
- * @date 2021-06-05 14:49:40
  */
 @RestController
 @RequestMapping("product/spuimages")

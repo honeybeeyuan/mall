@@ -18,13 +18,7 @@ import com.atguigu.common.utils.R;
 
 
 
-/**
- * 
- *
- * @author linfeng
- * @email 951243590@qq.com
- * @date 2021-06-05 14:49:40
- */
+
 @RestController
 @RequestMapping("product/undolog")
 public class UndoLogController {
