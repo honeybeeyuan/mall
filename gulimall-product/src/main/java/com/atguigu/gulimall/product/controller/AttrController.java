@@ -35,6 +35,16 @@ public class AttrController {
 
     ///product/attr/info/{attrId}
 
+
+    // /product/attr/base/listforspu/{spuId}
+    @GetMapping("/base/listforspu/{spuId}")
+    public R baseAttrlistforspu(@PathVariable("spuId") Long spuId){
+
+        List<ProductAttrValueEntity> entities = productAttrValueService.baseAttrlistforspu(spuId);
+
+        return R.ok().put("data",entities);
+    }
+
     // /product/attr/base/listforspu/{spuId}
 //    @GetMapping("/base/listforspu/{spuId}")
 //    public R baseAttrlistforspu(@PathVariable("spuId") Long spuId){
@@ -99,6 +109,19 @@ public class AttrController {
    // @RequiresPermissions("product:attr:update")
     public R update(@RequestBody AttrVo attr){
         attrService.updateAttr(attr);
+
+        return R.ok();
+    }
+
+    /**
+     *批量修改商品属性
+     */
+    ///product/attr/update/{spuId}
+    @PostMapping("/update/{spuId}")
+    public R updateSpuAttr(@PathVariable("spuId") Long spuId,
+                           @RequestBody List<ProductAttrValueEntity> entities){
+
+        productAttrValueService.updateSpuAttr(spuId,entities);
 
         return R.ok();
     }

@@ -23,7 +23,6 @@ public class WareConstant {
         }
     }
 
-
     public enum  PurchaseDetailStatusEnum{
         CREATED(0,"新建"),ASSIGNED(1,"已分配"),
         BUYING(2,"正在采购"),FINISH(3,"已完成"),
