@@ -13,15 +13,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -31,14 +36,37 @@ public class GulimallProductApplicationTests {
     @Autowired
     BrandService brandService;
 
-    @Autowired
+    @Resource
     OSSClient ossClient;
 
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private RedissonClient redissonClient;
+
     @Test
-    public void testFindPath(){
+    public void teststringRedis() {
+
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        //保存
+        ops.set("hello","world"+ UUID.randomUUID().toString());
+        //查询
+        String hello = ops.get("hello");
+        System.out.println("之前保存的数据："+hello);
+    }
+
+    @Test
+    public void testRedisson() {
+        System.out.println(redissonClient);
+    }
+
+
+    @Test
+    public void testFindPath() {
         Long[] catelogPath = categoryService.findCatelogPath(225L);
         log.info("完整路径：{}", Arrays.asList(catelogPath));
     }
@@ -54,7 +82,6 @@ public class GulimallProductApplicationTests {
         System.out.println("上传完成");
 
     }
-
 
 
     @Test
