@@ -77,6 +77,7 @@ public class GulimallProductApplicationTests {
         InputStream inputStream = new FileInputStream("/Users/wangziyuan/Pictures/1.jpg");
         ossClient.putObject("gulimall-zyuan", "1.jpg", inputStream);
 
+
 // 关闭OSSClient。
         ossClient.shutdown();
         System.out.println("上传完成");

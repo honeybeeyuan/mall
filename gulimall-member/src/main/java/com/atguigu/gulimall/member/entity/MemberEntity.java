@@ -7,13 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
-/**
- * 会员
- * 
- * @author linfeng
- * @email 951243590@qq.com
- * @date 2021-06-05 16:06:57
- */
+
 @Data
 @TableName("ums_member")
 public class MemberEntity implements Serializable {
@@ -103,6 +97,6 @@ public class MemberEntity implements Serializable {
 	/**
 	 * 社交账号Token过期时间
 	 */
-	private String expiresIn;
+	private Long expiresIn;
 
 }
